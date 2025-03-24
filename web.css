@@ -1,0 +1,383 @@
+/***********************************************************
+   1) Base & Body
+************************************************************/
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.woff2") format("woff2"),
+       url("/fonts/Inter.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("/images/wallpaperflare.com_wallpaper.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/***********************************************************
+   2) Header
+************************************************************/
+header {
+  background-color: rgba(42, 42, 42, 0.9);
+  width: 100%;
+}
+
+.header-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid #d4af37; /* gold */
+  outline: 2px solid #444;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/***********************************************************
+   3) Hero (Grid Layout)
+************************************************************/
+.hero {
+  position: relative;
+  padding-bottom: 3rem;
+  background-color: transparent;
+}
+
+.hero-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+
+  /* Two columns for each hero row */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;  /* ensures both columns match height */
+}
+
+.hero-content.reverse {
+  /* If you want special rules for reversed layout, or just reorder in HTML */
+}
+
+/* TEXT BOX: top-centered horizontally. 
+   We'll do a flex column approach with align-items: center, 
+   justify-content: flex-start for top alignment. 
+*/
+.overlay-box {
+  background-color: rgba(42, 42, 42, 0.8);
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 1.5rem;
+
+  /* Fill entire grid cell. 
+     Then top-center contents: 
+  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* center horizontally */
+  justify-content: flex-start; /* top aligned vertically */
+  text-align: center;     /* text lines in center horizontally */
+}
+
+.title-separator {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #999;
+  margin: 1rem 0;
+}
+
+.overlay-box h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.overlay-box p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #f0f0f0;
+}
+
+/***********************************************************
+   FIGURE + IMAGE + FIGCAPTION
+   - image occupies entire column
+   - figcaption appears in bottom portion on hover
+************************************************************/
+figure {
+  margin: 0;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  /* center image vertically if there's extra space */
+  width: 100%;
+  /* fill entire grid cell's height for symmetrical layout: */
+  flex: 1;
+}
+
+figure img {
+  display: block;
+  width: 100%;   /* occupies entire figure horizontally */
+  height: auto;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+/* Absolutely positioned at the bottom portion of the image */
+figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(42, 42, 42, 0.8);
+  border-top: 2px solid purple;
+  color: #d4af37;
+  text-align: center;
+  padding: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  /* If the figure is taller than the image, you might 
+     see some blank space. The container might be bigger 
+     if the text side is bigger. 
+  */
+}
+
+figure figcaption cite {
+  font-size: 0.75rem;
+}
+
+/* Hover exactly on the image to see figcaption 
+   or use figure:hover figcaption if you prefer the entire figure area. */
+figure img:hover + figcaption {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/***********************************************************
+   4) Store Page (Page2)
+************************************************************/
+.store-content {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.store-content h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: rgb(42, 42, 42, 0.8);
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.product-card:hover {
+  color: #d4af37;
+  background-color: rgb(42, 42, 42, 0.98);
+  border: 5px solid #d4af37;
+  cursor: pointer;
+}
+
+.product-card:hover h3,
+.product-card:hover p,
+.product-card:hover strong {
+  color: #d4af37;
+}
+
+.product-image img {
+  width: 150px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.product-info {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-info h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.product-info p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+}
+
+.product-price strong {
+  font-style: thin;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/***********************************************************
+   5) FOOTER
+************************************************************/
+footer {
+  background-color: rgba(42, 42, 42, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+#footers {
+  width: 90%;
+  max-width: 1200px;
+  margin: 1rem auto;
+  border-collapse: collapse;
+}
+
+#footers td,
+#footers th {
+  padding: 0.5rem;
+  text-align: left;
+  color: #fff;
+}
+
+.table-border {
+  border-top: 3px solid #d4af37;
+}
+
+#footer-space {
+  width: 20%;
+}
+
+/***********************************************************
+   6) Form Container (Page3)
+************************************************************/
+.form-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: rgba(42, 42, 42, 0.97);
+  border: 3px solid #d4af37;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.form-container h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.form-container p {
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+form fieldset {
+  border: none;
+  margin: 1rem 0;
+}
+
+form fieldset legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #d4af37;
+}
+
+form label {
+  display: block;
+  margin: 1rem 0 0.25rem;
+  color: #f0f0f0;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #444;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: #2a2a2a;
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #d4af37;
+  color: #000;
+}

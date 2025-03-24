@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Mark E and Drev T" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeBronitas - Home (Grid, Matching Heights)</title>
+    <link rel="stylesheet" href="web.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="page1.html">
+          <img id="logo" src="/images/image (1).png" alt="Lebronitas" />
+        </a>
+        <nav>
+          <ul class="Base">
+            <li><a href="page2.html">Shop</a></li>
+            <li><a href="page3.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO #1 (Text left, Image right) -->
+    <section class="hero">
+      <div class="hero-content">
+        <!-- First column: text container -->
+        <div class="overlay-box">
+          <h1>Welcome to LeBronitas</h1>
+          <hr class="title-separator" />
+          <p>
+            That is the true genius of America - a faith in simple dreams,
+            an insistence on small miracles. We meet at one of those defining
+            moments - a moment when our nation is at war, our economy is 
+            in turmoil...
+          </p>
+        </div>
+
+        <!-- Second column: figure (LeBron) -->
+        <figure>
+          <img
+            src="/images/LeBron_James_(51959977144)_(cropped2).jpg"
+            alt="LeBron James"
+          />
+          <figcaption>
+            “LeBron James,” Wikipedia,<br />
+            https://en.wikipedia.org/wiki/LeBron_James#/media/File:LeBron_James_(51959977144)_(cropped2).jpg<br />
+            (accessed Feb. 28, 2025).
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- HERO #2 (Image left, Text right) -->
+    <section class="hero">
+      <div class="hero-content reverse">
+        <!-- If image is on the left, place figure first in HTML -->
+        <figure>
+          <img
+            src="/images/Luka_Doncic_2021_(cropped).jpg"
+            alt="Luka Doncic"
+          />
+          <figcaption>
+            Luka Doncic<br />
+            <cite>
+              Wikipedia,
+              https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg#/media/File:Luka_Doncic_2021_(cropped).jpg
+              (accessed Feb. 28, 2025).
+            </cite>
+          </figcaption>
+        </figure>
+
+        <!-- Right column: text container -->
+        <div class="overlay-box">
+          <h1>Second Hero Title</h1>
+          <hr class="title-separator" />
+          <p>
+            That is the true genius of America - a faith in simple dreams...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <table id="footers">
+        <tr>
+          <th id="footer-space">About us</th>
+          <th id="footer-space"></th>
+          <th id="footer-space">Contact us:</th>
+        </tr>
+        <tr class="table-border">
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td id="footer-space">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          </td>
+          <th></th>
+          <td id="footer-space">
+            (587)-699-9999 <br />
+            <a href="mailto:lebronjames23@gmail.com">lebronjames23@gmail.com</a>
+          </td>
+        </tr>
+        <tr class="table-border">
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <th colspan="3">Copyright Mark and Drev</th>
+        </tr>
+      </table>
+    </footer>
+  </body>
+</html>
