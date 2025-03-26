@@ -3,8 +3,7 @@
 ************************************************************/
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter.woff2") format("woff2"),
-       url("/fonts/Inter.woff") format("woff");
+  src: url("/fonts/Inter.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -16,11 +15,10 @@
 }
 
 body {
-  background: url("/images/wallpaperflare.com_wallpaper.jpg") no-repeat center center;
+  background: url("/images/wallpaperflare.com_wallpaper.jpg") no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
   color: #fff;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "Inter", "Calibri", Arial, sans-serif;
   line-height: 1.6;
 }
 
@@ -33,36 +31,16 @@ header {
 }
 
 .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-/* New three-section header layout */
-.header-left,
-.header-center,
-.header-right {
+  padding: 1rem 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.header-left {
-  flex: 0 0 auto;
-}
-
-.header-center {
-  flex: 1;
-  text-align: center;
-}
-
-.header-right {
-  flex: 0 0 auto;
-}
-
-/* Logo */
+/* Default (large screens): logo left and regular nav on right */
 #logo {
   width: 220px;
   height: auto;
@@ -71,11 +49,7 @@ header {
   outline: 2px solid #444;
 }
 
-/* Top navigation (for larger screens) */
-.top-nav {
-  display: none;
-}
-
+/* Regular nav (from original CSS) */
 .top-nav ul {
   list-style: none;
   display: flex;
@@ -96,8 +70,145 @@ header {
   font-size: 1.2rem;
 }
 
+/* Mobile header: use a three‑section layout.
+   The HTML should have:
+   - .header-left: for the hamburger (menu-label)
+   - .header-center: for the logo
+   - .header-right: for the original nav (hidden on mobile)
+*/
+@media (max-width: 789px) {
+  .header-inner {
+    justify-content: center;
+    position: relative;
+  }
+  /* Hamburger icon remains at top left */
+  .header-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+  }
+  /* Logo centered */
+  .header-center {
+    text-align: center;
+    flex: 1;
+  }
+  /* Hide the original nav on mobile */
+  .header-right,
+  .top-nav {
+    display: none;
+  }
+}
+
+/* On large screens, hide the mobile hamburger section */
+@media (min-width: 790px) {
+  .header-left {
+    display: none;
+  }
+  /* Ensure logo remains left-aligned and nav on right */
+  .header-center {
+    text-align: left;
+  }
+  .header-right {
+    display: block;
+    text-align: right;
+  }
+}
+
 /***********************************************************
-   3) Hero Section & Figures
+   3) Sidebar & Hamburger (Mobile Only)
+************************************************************/
+/* Place these elements at the top of your HTML body */
+#menu-toggle {
+  display: none;
+}
+
+.menu-label {
+  font-size: 2rem;
+  color: #fff;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+/* Sidebar (mobile off-canvas) */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #2a2a2a;
+  padding: 2rem 1rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+#menu-toggle:checked ~ #sidebar {
+  transform: translateX(0);
+}
+
+/* Sidebar nav: vertical layout */
+#sidebar ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #d4af37;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+#sidebar li:last-child a {
+  border-bottom: none;
+}
+
+#sidebar li a:hover {
+  color: #d4af37;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Close button inside sidebar */
+.close-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+#menu-toggle:checked ~ #sidebar .close-label {
+  display: block;
+}
+
+/* Overlay (clicking it closes sidebar) */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 900;
+}
+#menu-toggle:checked ~ .overlay {
+  display: block;
+}
+
+/***********************************************************
+   4) Hero Section & Figures
 ************************************************************/
 .hero {
   position: relative;
@@ -109,14 +220,22 @@ header {
   width: 90%;
   max-width: 1200px;
   margin: 2rem auto;
+  /* On large screens, use a two-column grid */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: stretch;
 }
 
+/* On small screens, per assignment, switch to one column layout */
+@media (max-width: 589px) {
+  .hero-content {
+    display: block;
+  }
+}
+
 .overlay-box {
-  background-color: rgba(42, 42, 42, 0.8);
+  background-color: rgba(42,42,42,0.8);
   border: 1px solid #d4af37;
   border-radius: 6px;
   padding: 1.5rem;
@@ -141,54 +260,75 @@ header {
 }
 
 .overlay-box p {
-  font-size: 1.125rem;
+  font-size: 1.0rem;
   line-height: 1.8;
   color: #f0f0f0;
 }
 
 figure {
-  margin: 0;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  flex: 1;
 }
 
+/* The image itself */
 figure img {
   display: block;
   width: 100%;
-  height: auto;
-  border: 1px solid #444;
+  border: none; /* Remove any outer border */
   border-radius: 4px;
 }
 
+/* Pseudo-element for inner border on top of image */
+figure::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 3px solid white;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Figcaption hidden by default */
 figure figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(42, 42, 42, 0.8);
-  border-top: 2px solid purple;
+  background-color: rgba(42, 42, 42, 0.99);
+  border-top: 8px solid purple;
   color: #d4af37;
   text-align: center;
   padding: 0.5rem;
+  white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
-figure img:hover + figcaption {
+/* Show figcaption on hover over the image */
+figure:hover figcaption {
   opacity: 1;
   pointer-events: auto;
 }
 
+figure:hover::after {
+  border: 8px solid purple; /* Changes to red when hovered */
+  transition: border 0.3s ease;
+}
+
 /***********************************************************
-   4) Store Page (Page2)
+   5) Store Page (Page2)
 ************************************************************/
 .store-content {
   width: 90%;
@@ -211,7 +351,7 @@ figure img:hover + figcaption {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  background-color: rgba(42, 42, 42, 0.8);
+  background-color: rgba(42,42,42,0.8);
   border: 1px solid #d4af37;
   border-radius: 6px;
   padding: 1rem;
@@ -221,7 +361,7 @@ figure img:hover + figcaption {
 
 .product-card:hover {
   color: #d4af37;
-  background-color: rgba(42, 42, 42, 0.98);
+  background-color: rgba(42,42,42,0.98);
   border: 5px solid #d4af37;
   cursor: pointer;
 }
@@ -271,7 +411,7 @@ figure img:hover + figcaption {
 }
 
 /***********************************************************
-   5) Footer
+   6) Footer
 ************************************************************/
 footer {
   background-color: rgba(42, 42, 42, 0.9);
@@ -303,13 +443,13 @@ footer {
 }
 
 /***********************************************************
-   6) Form Container (Page3)
+   7) Form Container (Page3)
 ************************************************************/
 .form-container {
   width: 90%;
   max-width: 800px;
   margin: 2rem auto;
-  background-color: rgba(42, 42, 42, 0.97);
+  background-color: rgba(42,42,42,0.97);
   border: 3px solid #d4af37;
   border-radius: 6px;
   padding: 1.5rem;
@@ -354,7 +494,6 @@ form textarea {
   background-color: #444;
   color: #fff;
   margin-bottom: 1rem;
-  resize: none;
 }
 
 .button-row {
@@ -379,120 +518,22 @@ form button:hover {
 }
 
 /***********************************************************
-   7) Sidebar & Hamburger Menu (Mobile Only)
-************************************************************/
-/* The toggle checkbox is hidden */
-#menu-toggle {
-  display: none;
-}
-
-/* Hamburger icon (mobile) */
-.menu-label {
-  font-size: 2rem;
-  cursor: pointer;
-  color: #fff;
-  padding: 1rem;
-  display: inline-block;
-}
-
-/* Sidebar: off-canvas by default */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #2a2a2a;
-  padding: 2rem 1rem;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
-}
-
-/* Reveal sidebar when toggle is checked */
-#menu-toggle:checked ~ #sidebar {
-  transform: translateX(0);
-}
-
-/* Sidebar nav links: add horizontal separators and matching styles */
-#sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#sidebar li a {
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem 1rem;
-  font-family: "Inter", Arial, sans-serif;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #d4af37;
-}
-
-#sidebar li:last-child a {
-  border-bottom: none;
-}
-
-#sidebar li a:hover {
-  color: #d4af37;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Overlay that covers the page when sidebar is open */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 900;
-}
-
-#menu-toggle:checked ~ .overlay {
-  display: block;
-}
-
-/* Close button inside sidebar */
-.close-label {
-  font-size: 2rem;
-  cursor: pointer;
-  color: #fff;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: none;
-}
-
-#menu-toggle:checked ~ #sidebar .close-label {
-  display: block;
-}
-
-/***********************************************************
    8) Responsive Adjustments
 ************************************************************/
-/* For screens 790px and wider: hide mobile sidebar, hamburger, and overlay; show top nav */
-@media (min-width: 790px) {
-  .menu-label,
-  .overlay,
-  #sidebar {
-    display: none;
-  }
-  .header-left {
-    display: none;
-  }
-  .top-nav {
-    display: block;
-  }
-}
-
-/* For screens 589px and below: stack hero content vertically */
 @media (max-width: 589px) {
+  /* Stack hero columns vertically */
   .hero-content {
     display: block;
+  }
+  /* Add a margin between the first and second child in .hero-content */
+  .hero-content > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  /* Reduce text size for the overlay-box */
+  .overlay-box h1 {
+    font-size: 1.75rem; /* was 2rem */
+  }
+  .overlay-box p {
+    font-size: 1rem; /* was 1.125rem */
   }
 }
