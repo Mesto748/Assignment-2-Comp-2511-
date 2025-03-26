@@ -3,7 +3,7 @@
 ************************************************************/
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter.woff2") format("woff2");
+  src: url("fonts/Inter.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 }
 
 body {
-  background: url("/images/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
+  background: url("images/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
   /*Background from "https://pxhere.com/en/photo/1499879?utm_content=clipUser&utm_medium=referral&utm_source=pxhere" */
   background-size: cover;
   color: #fff;
@@ -140,7 +140,8 @@ header {
   width: 250px;
   height: 100vh;
   background-color: #2a2a2a;
-  padding: 2rem 1rem;
+  /* Extra top padding so that the close button has its own space */
+  padding: 3rem 1rem 2rem 1rem;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
@@ -150,13 +151,25 @@ header {
   transform: translateX(0);
 }
 
-/* Sidebar nav: vertical layout */
+/* Place the close button at the top-right of the sidebar */
+.close-label {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  z-index: 2;
+}
+
+/* Push the navigation list down so it doesn’t overlap with the close button */
 #sidebar ul {
   display: flex;
   flex-direction: column;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 1rem 0 0 0; /* 1rem top margin */
 }
 
 #sidebar li a {
@@ -164,8 +177,8 @@ header {
   padding: 0.5rem 1rem;
   color: #fff;
   text-decoration: none;
-  transition: background-color 0.3s ease;
   border-bottom: 1px solid #d4af37;
+  transition: background-color 0.3s ease;
   font-family: "Inter", Arial, sans-serif;
 }
 
@@ -267,23 +280,25 @@ header {
 }
 
 figure {
+  margin: 0;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
+  overflow: hidden; /* Prevents overflow issues */
 }
 
-/* The image itself */
 figure img {
   display: block;
   width: 100%;
-  border: none; /* Remove any outer border */
+  height: auto;
+  border: none; /* Remove any conflicting borders */
   border-radius: 4px;
 }
 
-/* Pseudo-element for inner border on top of image */
+/* Pseudo-element creates an internal border inset by 2px */
 figure::after {
   content: "";
   position: absolute;
@@ -291,20 +306,26 @@ figure::after {
   left: 12px;
   right: 12px;
   bottom: 12px;
-  border: 3px solid white;
+  border: 4px solid white; /* Gold color */
   border-radius: 4px;
   pointer-events: none;
+  transition: border-color 0.3s ease;
   z-index: 1;
 }
 
-/* Figcaption hidden by default */
+/* Change the internal border color on hover */
+figure:hover::after {
+  border-color: #ff0000; /* Change to desired hover color */
+}
+
+/* Figcaption hidden by default; appears when hovering anywhere in the figure */
 figure figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(42, 42, 42, 0.99);
-  border-top: 8px solid purple;
+  background-color: rgba(42, 42, 42, 0.98);
+  border-top: 2px solid purple;
   color: #d4af37;
   text-align: center;
   padding: 0.5rem;
@@ -317,7 +338,6 @@ figure figcaption {
   z-index: 2;
 }
 
-/* Show figcaption on hover over the image */
 figure:hover figcaption {
   opacity: 1;
   pointer-events: auto;
@@ -523,19 +543,41 @@ form button:hover {
    8) Responsive Adjustments
 ************************************************************/
 @media (max-width: 589px) {
-  /* Stack hero columns vertically */
+  /* When in mobile view, stack the two columns */
   .hero-content {
     display: block;
   }
-  /* Add a margin between the first and second child in .hero-content */
+  /* Add extra vertical spacing between the two elements inside each hero-content */
   .hero-content > *:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
-  /* Reduce text size for the overlay-box */
+  /* Slightly reduce text sizes for better mobile legibility */
   .overlay-box h1 {
-    font-size: 1.75rem; /* was 2rem */
+    font-size: 1.75rem;
   }
   .overlay-box p {
-    font-size: 1rem; /* was 1.125rem */
+    font-size: 1rem;
+  }
+  
+}
+@media (min-width: 589px) {
+  figure {
+    height: 250px; /* Adjust this value as needed */
+    overflow: hidden;
+  }
+  figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-content > figure {
+    height: 100%;
+  }
+  
+  /* Force the image inside the figure to fill the figure's height and crop as needed */
+  .hero-content > figure img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
