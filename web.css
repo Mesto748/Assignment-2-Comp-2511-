@@ -494,6 +494,7 @@ form textarea {
   background-color: #444;
   color: #fff;
   margin-bottom: 1rem;
+  resize: none;
 }
 
 .button-row {
