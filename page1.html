@@ -4,103 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Mark E and Drev T" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeBronitas - Home (Grid, Matching Heights)</title>
+    <title>LeBronitas - Home</title>
+    
+    <!-- Normalize.css to standardize browser defaults -->
+    <link rel="stylesheet" href="normalize.css" />
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="web.css" />
   </head>
   <body>
+    <!-- Hidden checkbox for sidebar toggle -->
+    <input type="checkbox" id="menu-toggle" />
+
+    <!-- Sidebar Navigation (mobile off-canvas) -->
+    <nav id="sidebar" aria-label="Sidebar Navigation">
+      <ul>
+        <li><a href="page2.html">Shop</a></li>
+        <li><a href="page2.html">About Us</a></li>
+        <li><a href="page3.html">Contact</a></li>
+      </ul>
+      <!-- Close button inside sidebar -->
+      <label for="menu-toggle" class="close-label">&times;</label>
+    </nav>
+
+    <!-- Overlay (clicking closes sidebar) -->
+    <label for="menu-toggle" class="overlay"></label>
+
     <!-- HEADER -->
     <header>
       <div class="header-inner">
-        <a href="page1.html">
-          <img id="logo" src="/images/image (1).png" alt="Lebronitas" />
-        </a>
-        <nav>
-          <ul class="Base">
-            <li><a href="page2.html">Shop</a></li>
-            <li><a href="page3.html">Contact</a></li>
-          </ul>
-        </nav>
+        <!-- Left section: Hamburger (mobile only) -->
+        <div class="header-left">
+          <label for="menu-toggle" class="menu-label">&#9776;</label>
+        </div>
+        <!-- Center section: Logo (centered on mobile) -->
+        <div class="header-center">
+          <a href="page1.html">
+            <img id="logo" src="/images/image (1).png" alt="LeBronitas Logo" />
+          </a>
+        </div>
+        <!-- Right section: Top Navigation (visible on larger screens) -->
+        <div class="header-right">
+          <nav class="top-nav">
+            <ul class="Base">
+              <li><a href="page2.html">Shop</a></li>
+              <li><a href="page2.html">About Us</a></li>
+              <li><a href="page3.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <!-- HERO #1 (Text left, Image right) -->
-    <section class="hero">
-      <div class="hero-content">
-        <!-- First column: text container -->
-        <div class="overlay-box">
-          <h1>Welcome to LeBronitas</h1>
-          <hr class="title-separator" />
-          <p>
-            That is the true genius of America - a faith in simple dreams, 
-            an insistence on small miracles. We meet at one of those defining moments 
-            - a moment when our nation is at war, our economy is in turmoil, and the 
-            American promise has been threatened once more. We did not go by choice, 
-            we went because of necessity. That is the true genius of America - a faith in simple dreams,
-             an insistence on small miracles. We meet at one of those defining moments
-              - a moment when our nation is at war, our economy is in turmoil, and the
-               American promise has been threatened once more. We did not go by choice,
-                we went because of necessity.
-          </p>
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- First Hero Section (LeBron James) -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="overlay-box">
+            <h1>Welcome to LeBronitas</h1>
+            <hr class="title-separator" />
+            <p>
+              That is the true genius of America - a faith in simple dreams,
+               an insistence on small miracles. We meet at one of those defining
+                moments - a moment when our nation is at war, our economy is in 
+                turmoil, and the American promise has been threatened once more. 
+                We did not go by choice, we went because of necessity. That is the 
+                true genius of America - a faith in simple dreams, an insistence 
+                on small miracles. We meet at one of those defining moments - 
+                a moment when our nation is at war, our economy is in turmoil, 
+                and the American promise has been threatened once more. We 
+                did not go by choice, we went because of necessity.
+            </p>
+          </div>
+          <figure>
+            <img src="/images/LeBron_James_(51959977144)_(cropped2).jpg" alt="Picture of LeBron James" />
+            <figcaption>
+              LeBron James<br/>
+              <cite>
+                Wikipedia, https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg#/media/File:LeBron_James_(51959977144)_(cropped2).jpg (accessed Feb. 28, 2025).
+              </cite>
+            </figcaption>
+          </figure>
         </div>
+      </section>
 
-        <!-- Second column: figure (LeBron) -->
-        <figure>
-          <img
-            src="/images/LeBron_James_(51959977144)_(cropped2).jpg"
-            alt="LeBron James"
-          />
-          <figcaption>
-            LeBron James<br />
-            <cite>https://en.wikipedia.org/wiki/LeBron_James#/media/File:LeBron_James_(51959977144)_(cropped2).jpg
-              (accessed Feb. 28, 2025).
-            </cite>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- HERO #2 (Image left, Text right) -->
-    <section class="hero">
-      <div class="hero-content reverse">
-        <!-- If image is on the left, place figure first in HTML -->
-        <figure>
-          <img
-            src="/images/Luka_Doncic_2021_(cropped).jpg"
-            alt="Luka Doncic"
-          />
-          <figcaption>
-            Luka Doncic<br />
-            <cite>
-              Wikipedia,
-              https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg#/media/File:Luka_Doncic_2021_(cropped).jpg
-              (accessed Feb. 28, 2025).
-            </cite>
-          </figcaption>
-        </figure>
-
-        <!-- Right column: text container -->
-        <div class="overlay-box">
-          <h2>Why us</h2>
-          <hr class="title-separator" />
-          <p>
-            That is the true genius of America - a faith in simple dreams, 
-            an insistence on small miracles. We meet at one of those defining moments - 
-            a moment when our nation is at war, our economy is in turmoil, and the American 
-            promise has been threatened once more. We did not go by choice, we went because of necessity. 
-            That is the true genius of America - a faith in simple dreams, an insistence on small miracles. 
-            We meet at one of those defining moments - a moment when our nation is at war, our economy 
-            is in turmoil, and the American promise has been threatened once more. 
-            We did not go by choice, we went because of necessity.
-          </p>
+      <!-- Second Hero Section (Luka Doncic) -->
+      <section class="hero">
+        <div class="hero-content reverse">
+          <figure>
+            <img src="/images/Luka_Doncic_2021_(cropped).jpg" alt="Picture of Luka Doncic" />
+            <figcaption>
+              Luka Doncic<br />
+              <cite>
+                Wikipedia, https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg#/media/File:Luka_Doncic_2021_(cropped).jpg (accessed Feb. 28, 2025)
+              </cite>
+            </figcaption>
+          </figure>
+          <div class="overlay-box">
+            <h1>Why Us</h1>
+            <hr class="title-separator" />
+            <p>
+              That is the true genius of America - a faith in simple dreams,
+               an insistence on small miracles. We meet at one of those defining
+                moments - a moment when our nation is at war, our economy is in 
+                turmoil, and the American promise has been threatened once more. 
+                We did not go by choice, we went because of necessity. That is the 
+                true genius of America - a faith in simple dreams, an insistence 
+                on small miracles. We meet at one of those defining moments - 
+                a moment when our nation is at war, our economy is in turmoil, 
+                and the American promise has been threatened once more. We 
+                did not go by choice, we went because of necessity.
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      <!-- Additional page content goes here -->
+    </main>
 
     <!-- FOOTER -->
     <footer>
       <table id="footers">
         <tr>
-          <th id="footer-space">About us</th>
+          <th id="footer-space">Help?</th>
           <th id="footer-space"></th>
           <th id="footer-space">Contact us:</th>
         </tr>
@@ -109,9 +135,8 @@
         </tr>
         <tr>
           <td id="footer-space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore 
-            magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua.
           </td>
           <th></th>
           <td id="footer-space">

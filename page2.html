@@ -4,26 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Mark E and Drev T" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeBronitas - Shop</title>
-    <!-- Link to the unified stylesheet -->
+    <title>LeBronitas - Home</title>
+    
+    <!-- Normalize.css to standardize browser defaults -->
+    <link rel="stylesheet" href="normalize.css" />
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="web.css" />
   </head>
   <body>
-    <!-- HEADER (full-width dark background) -->
+    <!-- Hidden checkbox for sidebar toggle -->
+    <input type="checkbox" id="menu-toggle" />
+
+    <!-- Sidebar Navigation (mobile off-canvas) -->
+    <nav id="sidebar" aria-label="Sidebar Navigation">
+      <ul>
+        <li><a href="page1.html">Home</a></li>
+        <li><a href="page2.html">About Us</a></li>
+        <li><a href="page3.html">Contact</a></li>
+      </ul>
+      <!-- Close button inside sidebar -->
+      <label for="menu-toggle" class="close-label">&times;</label>
+    </nav>
+
+    <!-- Overlay (clicking closes sidebar) -->
+    <label for="menu-toggle" class="overlay"></label>
+
+    <!-- HEADER -->
     <header>
-      <!-- .header-inner for centered logo + nav -->
       <div class="header-inner">
-        <a href="page1.html">
-          <img id="logo" src="/images/image (1).png" alt="Lebronitas" />
-        </a>
-        <nav>
-          <ul class="Base">
-            <li id="navbut"><a href="page1.html">Home</a></li>
-            <li id="navbut"><a href="page3.html">Contact</a></li>
-          </ul>
-        </nav>
+        <!-- Left section: Hamburger (mobile only) -->
+        <div class="header-left">
+          <label for="menu-toggle" class="menu-label">&#9776;</label>
+        </div>
+        <!-- Center section: Logo (centered on mobile) -->
+        <div class="header-center">
+          <a href="page1.html">
+            <img id="logo" src="/images/image (1).png" alt="LeBronitas Logo" />
+          </a>
+        </div>
+        <!-- Right section: Top Navigation (visible on larger screens) -->
+        <div class="header-right">
+          <nav class="top-nav">
+            <ul class="Base">
+              <li><a href="page1.html">Home</a></li>
+              <li><a href="page2.html">About Us</a></li>
+              <li><a href="page3.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
+
 
     <!-- MAIN STORE CONTENT -->
     <section class="store-content">
@@ -92,7 +123,7 @@
     <footer>
       <table id="footers">
         <tr>
-          <th id="footer-space">About us</th>
+          <th id="footer-space">Help?</th>
           <th id="footer-space"></th>
           <th id="footer-space">Contact us:</th>
         </tr>
