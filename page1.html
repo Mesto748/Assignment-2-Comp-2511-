@@ -6,97 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LeBronitas - Home</title>
     
-    <!-- Normalize.css to standardize browser defaults -->
-    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
     <!-- Main stylesheet -->
-    <link rel="stylesheet" href="web.css" />
+    <link rel="stylesheet" href="css/web.css" />
   </head>
   <body>
-    <!-- Hidden checkbox for sidebar toggle -->
+    <!-- Hidden checkbox for sidebar toggle (must be at the top) -->
     <input type="checkbox" id="menu-toggle" />
 
     <!-- Sidebar Navigation (mobile off-canvas) -->
     <nav id="sidebar" aria-label="Sidebar Navigation">
       <ul>
         <li><a href="page2.html">Shop</a></li>
-        <li><a href="page2.html">About Us</a></li>
-        <li><a href="page3.html">Contact</a></li>
+        <li><a href="page3.html">About Us</a></li>
+        <li><a href="page4.html">Contact</a></li>
       </ul>
       <!-- Close button inside sidebar -->
       <label for="menu-toggle" class="close-label">&times;</label>
     </nav>
 
-    <!-- Overlay (clicking closes sidebar) -->
+    <!-- Overlay (clicking it closes the sidebar) -->
     <label for="menu-toggle" class="overlay"></label>
 
-    <!-- HEADER -->
     <header>
       <div class="header-inner">
         <!-- Left section: Hamburger (mobile only) -->
         <div class="header-left">
           <label for="menu-toggle" class="menu-label">&#9776;</label>
         </div>
-        <!-- Center section: Logo (centered on mobile) -->
+        <!-- Center section: Logo -->
         <div class="header-center">
           <a href="page1.html">
             <img id="logo" src="images/image (1).png" alt="LeBronitas Logo" />
           </a>
         </div>
-        <!-- Right section: Top Navigation (visible on larger screens) -->
+        <!-- Right section: Top Navigation (visible on large screens) -->
         <div class="header-right">
           <nav class="top-nav">
             <ul class="Base">
               <li><a href="page2.html">Shop</a></li>
-              <li><a href="page2.html">About Us</a></li>
-              <li><a href="page3.html">Contact</a></li>
+              <li><a href="page3.html">About Us</a></li>
+              <li><a href="page4.html">Contact</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main>
-      <!-- First Hero Section (LeBron James) -->
-      <section class="hero">
-        <div class="hero-content">
+      <!-- Lebron Section-->
+      <section class="container">
+        <div class="container-content">
           <div class="overlay-box">
             <h1>Welcome to LeBronitas</h1>
             <hr class="title-separator" />
             <p>
-              That is the true genius of America - a faith in simple dreams,
-               an insistence on small miracles. We meet at one of those defining
-                moments - a moment when our nation is at war, our economy is in 
-                turmoil, and the American promise has been threatened once more. 
-                We did not go by choice, we went because of necessity. That is the 
-                true genius of America - a faith in simple dreams, an insistence 
-                on small miracles. We meet at one of those defining moments - 
-                a moment when our nation is at war, our economy is in turmoil, 
-                and the American promise has been threatened once more. We 
-                did not go by choice, we went because of necessity.
+              That is the true genius of America - 
+              a faith in simple dreams, an insistence 
+              on small miracles. We meet at one of those 
+              defining moments - a moment when our nation is at war, 
+              our economy is in turmoil, and the American promise has 
+              been threatened once more. We did not go by choice, we went because of necessity. 
+              That is the true genius of America - a faith in simple dreams, an insistence on small miracles. 
+              We meet at one of those defining moments - a moment when our nation is at war, our economy is in turmoil, 
+              and the American promise has been threatened once more. We did not go by choice, we went because of necessity.
             </p>
           </div>
           <figure>
             <img src="images/LeBron_James_(51959977144)_(cropped2).jpg" alt="Picture of LeBron James" />
             <figcaption>
-              LeBron James<br/>
+              LeBron James<br />
               <cite>
-                Wikipedia, https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg#/media/File:LeBron_James_(51959977144)_(cropped2).jpg (accessed Feb. 28, 2025).
+                Wikipedia, https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg (accessed Feb. 28, 2025).
+                <a id="cite" href="https://commons.wikimedia.org/wiki/File:LeBron_James_(51959977144)_(cropped2).jpg">Image here</a>
               </cite>
             </figcaption>
           </figure>
         </div>
       </section>
 
-      <!-- Second Hero Section (Luka Doncic) -->
-      <section class="hero">
-        <div class="hero-content reverse">
+      <!-- Luka Section -->                  
+      <section class="container">
+        <div class="container-content reverse">
           <figure>
             <img src="images/Luka_Doncic_2021_(cropped).jpg" alt="Picture of Luka Doncic" />
             <figcaption>
               Luka Doncic<br />
               <cite>
-                Wikipedia, https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg#/media/File:Luka_Doncic_2021_(cropped).jpg (accessed Feb. 28, 2025)
+                Wikipedia, https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg (accessed Feb. 28, 2025).
+                <a id="cite" href="https://commons.wikimedia.org/wiki/File:Luka_Doncic_2021_(cropped).jpg">Image here</a>
               </cite>
             </figcaption>
           </figure>
@@ -104,25 +102,21 @@
             <h1>Why Us</h1>
             <hr class="title-separator" />
             <p>
-              That is the true genius of America - a faith in simple dreams,
-               an insistence on small miracles. We meet at one of those defining
-                moments - a moment when our nation is at war, our economy is in 
-                turmoil, and the American promise has been threatened once more. 
-                We did not go by choice, we went because of necessity. That is the 
-                true genius of America - a faith in simple dreams, an insistence 
-                on small miracles. We meet at one of those defining moments - 
-                a moment when our nation is at war, our economy is in turmoil, 
-                and the American promise has been threatened once more. We 
-                did not go by choice, we went because of necessity.
+              That is the true genius of America - 
+              a faith in simple dreams, an insistence 
+              on small miracles. We meet at one of those 
+              defining moments - a moment when our nation is at war, 
+              our economy is in turmoil, and the American promise has 
+              been threatened once more. We did not go by choice, we went because of necessity. 
+              That is the true genius of America - a faith in simple dreams, an insistence on small miracles. 
+              We meet at one of those defining moments - a moment when our nation is at war, our economy is in turmoil, 
+              and the American promise has been threatened once more. We did not go by choice, we went because of necessity.
             </p>
           </div>
         </div>
       </section>
-      
-      <!-- Additional page content goes here -->
     </main>
 
-    <!-- FOOTER -->
     <footer>
       <table id="footers">
         <tr>
@@ -135,8 +129,8 @@
         </tr>
         <tr>
           <td id="footer-space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	
           </td>
           <th></th>
           <td id="footer-space">

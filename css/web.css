@@ -1,6 +1,6 @@
-/***********************************************************
-   1) Base & Body
-************************************************************/
+/*
+   1) Global Settings & Base Styles
+*/
 @font-face {
   font-family: "Inter";
   src: url("fonts/Inter.woff2") format("woff2");
@@ -15,20 +15,22 @@
 }
 
 body {
-  background: url("images/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
-  /*Background from "https://pxhere.com/en/photo/1499879?utm_content=clipUser&utm_medium=referral&utm_source=pxhere" */
+  background: url("/images/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
+  /* Background from "https://pxhere.com/en/photo/1499879?utm_content=clipUser&utm_medium=referral&utm_source=pxhere" */
   background-size: cover;
   color: #fff;
   font-family: "Inter", "Calibri", Arial, sans-serif;
   line-height: 1.6;
 }
 
-/***********************************************************
-   2) Header & Navigation
-************************************************************/
+/*
+   2) Common Components: Header, Navigation, Sidebar, Footer
+*/
 header {
-  background-color: rgba(42, 42, 42, 0.9);
   width: 100%;
+  background-color: rgba(42, 42, 42, 0.9);
+  margin: 0;
+  padding: 0;
 }
 
 .header-inner {
@@ -41,7 +43,6 @@ header {
   justify-content: space-between;
 }
 
-/* Default (large screens): logo left and regular nav on right */
 #logo {
   width: 220px;
   height: auto;
@@ -50,7 +51,6 @@ header {
   outline: 2px solid #444;
 }
 
-/* Regular nav (from original CSS) */
 .top-nav ul {
   list-style: none;
   display: flex;
@@ -71,56 +71,6 @@ header {
   font-size: 1.2rem;
 }
 
-/* Mobile header: use a three‑section layout.
-   The HTML should have:
-   - .header-left: for the hamburger (menu-label)
-   - .header-center: for the logo
-   - .header-right: for the original nav (hidden on mobile)
-*/
-@media (max-width: 789px) {
-  .header-inner {
-    justify-content: center;
-    position: relative;
-  }
-  /* Hamburger icon remains at top left */
-  .header-left {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
-  }
-  /* Logo centered */
-  .header-center {
-    text-align: center;
-    flex: 1;
-  }
-  /* Hide the original nav on mobile */
-  .header-right,
-  .top-nav {
-    display: none;
-  }
-}
-
-/* On large screens, hide the mobile hamburger section */
-@media (min-width: 790px) {
-  .header-left {
-    display: none;
-  }
-  /* Ensure logo remains left-aligned and nav on right */
-  .header-center {
-    text-align: left;
-  }
-  .header-right {
-    display: block;
-    text-align: right;
-  }
-}
-
-/***********************************************************
-   3) Sidebar & Hamburger (Mobile Only)
-************************************************************/
-/* Place these elements at the top of your HTML body */
 #menu-toggle {
   display: none;
 }
@@ -132,7 +82,6 @@ header {
   cursor: pointer;
 }
 
-/* Sidebar (mobile off-canvas) */
 #sidebar {
   position: fixed;
   top: 0;
@@ -140,7 +89,6 @@ header {
   width: 250px;
   height: 100vh;
   background-color: #2a2a2a;
-  /* Extra top padding so that the close button has its own space */
   padding: 3rem 1rem 2rem 1rem;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
@@ -151,25 +99,12 @@ header {
   transform: translateX(0);
 }
 
-/* Place the close button at the top-right of the sidebar */
-.close-label {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  z-index: 2;
-}
-
-/* Push the navigation list down so it doesn’t overlap with the close button */
 #sidebar ul {
   display: flex;
   flex-direction: column;
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0 0; /* 1rem top margin */
+  margin: 1rem 0 0 0;
 }
 
 #sidebar li a {
@@ -192,7 +127,6 @@ header {
   font-size: 1.2rem;
 }
 
-/* Close button inside sidebar */
 .close-label {
   position: absolute;
   top: 10px;
@@ -202,11 +136,95 @@ header {
   cursor: pointer;
   display: none;
 }
+
 #menu-toggle:checked ~ #sidebar .close-label {
   display: block;
 }
 
-/* Overlay (clicking it closes sidebar) */
+footer {
+  width: 100%;
+  background-color: rgba(42, 42, 42, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+#footers {
+  width: 90%;
+  max-width: 1200px;
+  margin: 1rem auto;
+  border-collapse: collapse;
+}
+
+#footers td,
+#footers th {
+  padding: 0.5rem;
+  text-align: left;
+  color: #fff;
+}
+
+.table-border {
+  border-top: 3px solid #d4af37;
+}
+
+#footer-space {
+  width: 20%;
+}
+
+/*
+   3) Responsive Adjustments for Common Components
+*/
+@media (max-width: 789px) {
+  .header-inner {
+    justify-content: center;
+    position: relative;
+  }
+  .header-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+  }
+  .header-center {
+    text-align: center;
+    flex: 1;
+  }
+  .header-right,
+  .top-nav {
+    display: none;
+  }
+  #logo {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 790px) {
+  .header-left {
+    display: none;
+  }
+  .header-center {
+    text-align: left;
+  }
+  .header-right {
+    display: block;
+    text-align: right;
+  }
+  .top-nav {
+    display: block;
+  }
+}
+
+@media (min-width: 790px) {
+  .menu-label,
+  .overlay,
+  #sidebar {
+    display: none;
+  }
+}
+
 .overlay {
   display: none;
   position: fixed;
@@ -217,34 +235,48 @@ header {
   background-color: rgba(0,0,0,0.6);
   z-index: 900;
 }
+
 #menu-toggle:checked ~ .overlay {
   display: block;
 }
 
-/***********************************************************
-   4) Hero Section & Figures
-************************************************************/
-.hero {
+/*
+   4) Page-Specific Components
+*/
+
+/* Page 1*/
+.container {
   position: relative;
   padding-bottom: 3rem;
   background-color: transparent;
 }
 
-.hero-content {
+.container-content {
   width: 90%;
   max-width: 1200px;
   margin: 2rem auto;
-  /* On large screens, use a two-column grid */
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: stretch;
 }
 
-/* On small screens, per assignment, switch to one column layout */
+#cite {
+  color: white;
+}
+
 @media (max-width: 589px) {
-  .hero-content {
+  .container-content {
     display: block;
+  }
+  .container-content > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  .overlay-box h1 {
+    font-size: 1.75rem;
+  }
+  .overlay-box p {
+    font-size: 1rem;
   }
 }
 
@@ -274,57 +306,70 @@ header {
 }
 
 .overlay-box p {
-  font-size: 1.0rem;
+  font-size: 1.125rem;
   line-height: 1.8;
   color: #f0f0f0;
 }
 
-figure {
+/* Figure, Image, & Figcaption elements for Page 1 */
+.container-content > figure {
   margin: 0;
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  overflow: hidden; /* Prevents overflow issues */
+  overflow: hidden;
 }
 
-figure img {
+.container-content > figure img {
   display: block;
   width: 100%;
   height: auto;
-  border: none; /* Remove any conflicting borders */
+  border: none;
   border-radius: 4px;
 }
 
-/* Pseudo-element creates an internal border inset by 2px */
-figure::after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  border: 4px solid white; /* Gold color */
-  border-radius: 4px;
-  pointer-events: none;
-  transition: border-color 0.3s ease;
-  z-index: 1;
+/* For viewports above 589px, forces the figure to a fixed height so the image crops to match the text container */
+@media (min-width: 589px) {
+  .container-content > figure {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .container-content > figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Internal border design: spans full height, inset from left/right only */
+  .container-content > figure::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    border: 3px solid #d4af37;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1;
+  }
+  .container-content > figure:hover::after {
+    border: 6px solid purple;
+    transition: 0.3s ease;
+  }
 }
 
-/* Change the internal border color on hover */
-figure:hover::after {
-  border-color: #ff0000; /* Change to desired hover color */
-}
-
-/* Figcaption hidden by default; appears when hovering anywhere in the figure */
-figure figcaption {
+.container-content > figure figcaption {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(42, 42, 42, 0.98);
+  background-color: rgba(42,42,42,0.99);
   border-top: 2px solid purple;
   color: #d4af37;
   text-align: center;
@@ -334,23 +379,16 @@ figure figcaption {
   overflow-wrap: break-word;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: 0.3s ease;
   z-index: 2;
 }
 
-figure:hover figcaption {
+.container-content > figure:hover figcaption {
   opacity: 1;
   pointer-events: auto;
 }
 
-figure:hover::after {
-  border: 8px solid purple; /* Changes to red when hovered */
-  transition: border 0.3s ease;
-}
-
-/***********************************************************
-   5) Store Page (Page2)
-************************************************************/
+/*Page 2: Store Page*/
 .store-content {
   width: 90%;
   max-width: 1200px;
@@ -358,9 +396,13 @@ figure:hover::after {
 }
 
 .store-content h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
+  display: inline-block;
+  background-color: rgba(42,42,42,0.9);
+  border: 1px solid #d4af37;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
   color: #fff;
+  margin-bottom: 1.5rem;
 }
 
 .product-link {
@@ -430,42 +472,23 @@ figure:hover::after {
   font-size: 1.2rem;
   color: #fff;
 }
+/*Page 3: About us (Under Construction)*/
+.main-about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
 
-/***********************************************************
-   6) Footer
-************************************************************/
-footer {
-  background-color: rgba(42, 42, 42, 0.9);
-  color: #fff;
+.about-content {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   text-align: center;
-  padding: 1rem 0;
 }
-
-#footers {
-  width: 90%;
-  max-width: 1200px;
-  margin: 1rem auto;
-  border-collapse: collapse;
-}
-
-#footers td,
-#footers th {
-  padding: 0.5rem;
-  text-align: left;
-  color: #fff;
-}
-
-.table-border {
-  border-top: 3px solid #d4af37;
-}
-
-#footer-space {
-  width: 20%;
-}
-
-/***********************************************************
-   7) Form Container (Page3)
-************************************************************/
+/*Page 4: Forms */
 .form-container {
   width: 90%;
   max-width: 800px;
@@ -539,45 +562,20 @@ form button:hover {
   color: #000;
 }
 
-/***********************************************************
-   8) Responsive Adjustments
-************************************************************/
+/*
+   5) Adjustments for Page-Specific Components
+*/
 @media (max-width: 589px) {
-  /* When in mobile view, stack the two columns */
-  .hero-content {
+  .container-content {
     display: block;
   }
-  /* Add extra vertical spacing between the two elements inside each hero-content */
-  .hero-content > *:not(:last-child) {
+  .container-content > *:not(:last-child) {
     margin-bottom: 1.5rem;
   }
-  /* Slightly reduce text sizes for better mobile legibility */
   .overlay-box h1 {
     font-size: 1.75rem;
   }
   .overlay-box p {
     font-size: 1rem;
-  }
-  
-}
-@media (min-width: 589px) {
-  figure {
-    height: 250px; /* Adjust this value as needed */
-    overflow: hidden;
-  }
-  figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-content > figure {
-    height: 100%;
-  }
-  
-  /* Force the image inside the figure to fill the figure's height and crop as needed */
-  .hero-content > figure img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
   }
 }

@@ -4,129 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Mark E and Drev T" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeBronitas - Home</title>
+    <title>LeBronitas - About Us</title>
     
-    <!-- Normalize.css to standardize browser defaults -->
-    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
     <!-- Main stylesheet -->
-    <link rel="stylesheet" href="web.css" />
+    <link rel="stylesheet" href="css/web.css" />
   </head>
   <body>
-    <!-- Hidden checkbox for sidebar toggle -->
     <input type="checkbox" id="menu-toggle" />
 
-    <!-- Sidebar Navigation (mobile off-canvas) -->
     <nav id="sidebar" aria-label="Sidebar Navigation">
       <ul>
         <li><a href="page1.html">Home</a></li>
         <li><a href="page2.html">Shop</a></li>
-        <li><a href="page2.html">About Us</a></li>
+        <li><a href="page4.html">Contact</a></li>
       </ul>
-      <!-- Close button inside sidebar -->
       <label for="menu-toggle" class="close-label">&times;</label>
     </nav>
 
-    <!-- Overlay (clicking closes sidebar) -->
     <label for="menu-toggle" class="overlay"></label>
 
-    <!-- HEADER -->
     <header>
       <div class="header-inner">
-        <!-- Left section: Hamburger (mobile only) -->
         <div class="header-left">
           <label for="menu-toggle" class="menu-label">&#9776;</label>
         </div>
-        <!-- Center section: Logo (centered on mobile) -->
         <div class="header-center">
           <a href="page1.html">
             <img id="logo" src="images/image (1).png" alt="LeBronitas Logo" />
           </a>
         </div>
-        <!-- Right section: Top Navigation (visible on larger screens) -->
         <div class="header-right">
           <nav class="top-nav">
             <ul class="Base">
               <li><a href="page1.html">Home</a></li>
               <li><a href="page2.html">Shop</a></li>
-              <li><a href="page2.html">About Us</a></li>
+              <li><a href="page4.html">Contact</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <!-- MAIN CONTACT SECTION -->
-    <section class="form-container">
-      <h2>Contact Us</h2>
-      <p>
-        Dear Customer! Thanks for shopping with us. 
-        If you would like to make a purchase on our website, or if you have any concerns with our products, please fill out the form below!
-      </p>
-
-      <!-- Example Form -->
-      <form>
-        <fieldset>
-          <legend>We'd love to hear from you</legend>
-
-          <!-- Name Fields -->
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="fname" required autofocus />
-
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lname" required />
-
-          <!-- Communication Preferences -->
-          <p>Preferred Contact Method:</p>
-          <div>
-            <input type="checkbox" id="contact-email" />
-            <label for="contact-email">Email</label>
+    <!-- MAIN CONTENT -->
+    <main class="main-about">
+        <section class="container">
+          <div class="about-content">
+            <div class="overlay-box">
+              <h1>About Us</h1>
+              <hr class="title-separator" />
+              <p>This page is currently under construction. Please check back soon!</p>
+            </div>
           </div>
-          <div>
-            <input type="checkbox" id="contact-phone" />
-            <label for="contact-phone">Phone</label>
-          </div>
+        </section>
+      </main>
+      
 
-          <!-- Phone & Email Fields -->
-          <label for="phonenum">Phone Number</label>
-          <input
-            type="tel"
-            id="phonenum"
-            name="user-contact"
-            placeholder="(123) 456 789"
-            pattern="([0-9]{3} [0-9]{3} [0-9]{4})"
-          />
-
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="uemail"
-            placeholder="ex. user1@email.com"
-          />
-
-          <!-- Subject & Feedback -->
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="usubject" placeholder="Questions?" />
-
-          <label for="feedback">Feedback</label>
-          <textarea
-            id="feedback"
-            name="ubody"
-            rows="5"
-            cols="50"
-            placeholder="Type your thoughts!"
-          ></textarea>
-
-          <!-- Submit / Reset -->
-          <div class="button-row">
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-          </div>
-        </fieldset>
-      </form>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
       <table id="footers">
         <tr>
@@ -139,8 +72,8 @@
         </tr>
         <tr>
           <td id="footer-space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </td>
           <th></th>
           <td id="footer-space">

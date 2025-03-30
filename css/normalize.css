@@ -1,0 +1,59 @@
+/*
+	normalize.css for this website,
+	based on: modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize
+*/
+
+/* 1. Better Box model from modern-normalize*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Core defaults for html (without resetting margins on body/headings) */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 3. Normalize list styles */
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* 4. Ensure images are responsive */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Normalize form element typography */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* 6. Normalize anchor defaults */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 7. Reset figure margins (your web.css can override if needed) */
+figure {
+  margin: 0;
+}
+
+/* 8. Respect users' motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
