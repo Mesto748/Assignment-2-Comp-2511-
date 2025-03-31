@@ -3,7 +3,7 @@
 */
 @font-face {
   font-family: "Inter";
-  src: url("fonts/Inter.woff2") format("woff2");
+  src: url("/fonts/Inter.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 }
 
 body {
-  background: url("/images/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
+  background: url("background/tree-sky-white-black-nature-palm-tree-1499879-pxhere.com.jpg") no-repeat center center fixed;
   /* Background from "https://pxhere.com/en/photo/1499879?utm_content=clipUser&utm_medium=referral&utm_source=pxhere" */
   background-size: cover;
   color: #fff;
@@ -150,15 +150,15 @@ footer {
   margin: 0;
 }
 
-#footers {
+.footers {
   width: 90%;
   max-width: 1200px;
   margin: 1rem auto;
   border-collapse: collapse;
 }
 
-#footers td,
-#footers th {
+.footers td,
+.footers th {
   padding: 0.5rem;
   text-align: left;
   color: #fff;
@@ -168,7 +168,7 @@ footer {
   border-top: 3px solid #d4af37;
 }
 
-#footer-space {
+.footer-space {
   width: 20%;
 }
 
@@ -261,7 +261,7 @@ footer {
   align-items: stretch;
 }
 
-#cite {
+.cite {
   color: white;
 }
 
