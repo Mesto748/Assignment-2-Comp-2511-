@@ -11,28 +11,33 @@
     <link rel="stylesheet" href="../css/web.css" />
   </head>
   <body>
-    <!-- Hidden checkbox for sidebar toggle (must be at the top) -->
-    <input type="checkbox" id="menu-toggle" />
+    <header>
+      <!-- Sidebar for mobile-->
+       <!-- Hidden checkbox for sidebar toggle -->
+      <input type="checkbox" id="menu-toggle" aria-labelledby="menu-label" />
 
-    <!-- Sidebar Navigation (mobile off-canvas) -->
-    <nav id="sidebar" aria-label="Sidebar Navigation">
+      <!-- Sidebar Navigation -->
+      <nav id="sidebar" aria-label="Sidebar Navigation">
       <ul>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="about-us.html">About Us</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <!-- Close button inside sidebar -->
-      <label for="menu-toggle" class="close-label">&times;</label>
-    </nav>
 
-    <!-- Overlay (clicking it closes the sidebar) -->
-    <label for="menu-toggle" class="overlay"></label>
+      <!-- Close button: changed from a label to a div; not associated as a label -->
+      <div class="close-label" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();">&times;</div>
+      </nav>
 
-    <header>
+      <!-- Overlay: changed from a label to a div -->
+        <div class="overlay" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();"></div>
+
+      <!--Section ends here -->
+
       <div class="header-inner">
         <!-- Left section: Hamburger (mobile only) -->
         <div class="header-left">
-          <label for="menu-toggle" class="menu-label">&#9776;</label>
+          <!-- Primary label with id "menu-label" -->
+          <label id="menu-label" for="menu-toggle" class="menu-label">&#9776;</label>
         </div>
         <!-- Center section: Logo -->
         <div class="header-center">
@@ -121,7 +126,7 @@
       <table class="footers">
         <tr>
           <th class="footer-space">Help?</th>
-          <th class="footer-space"></th>
+          <th class="footer-space"> Thank you!</th>
           <th class="footer-space">Contact us:</th>
         </tr>
         <tr class="table-border">
@@ -129,13 +134,16 @@
         </tr>
         <tr>
           <td class="footer-space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.	
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </td>
-          <th></th>
+          <td> Help support this group by lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
           <td class="footer-space">
             (587)-699-9999 <br />
-            <a href="mailto:lebronjames23@gmail.com">lebronjames23@gmail.com</a>
+            <a href="mailto:lebronjames23@gmail.com">lebronjames23@gmail.com</a> <br />
+            23 ChosenOne Way <br />
+            Canada
           </td>
         </tr>
         <tr class="table-border">

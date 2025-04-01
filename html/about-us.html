@@ -11,23 +11,29 @@
     <link rel="stylesheet" href="../css/web.css" />
   </head>
   <body>
-    <input type="checkbox" id="menu-toggle" />
-
-    <nav id="sidebar" aria-label="Sidebar Navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <label for="menu-toggle" class="close-label">&times;</label>
-    </nav>
-
-    <label for="menu-toggle" class="overlay"></label>
-
     <header>
+      <!--Mobile Hidden Menu Sidebar-->
+      <input type="checkbox" id="menu-toggle" aria-labelledby="menu-label" />
+
+      <!-- Sidebar Navigation (mobile off-canvas) -->
+      <nav id="sidebar" aria-label="Sidebar Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- Close button as a div (not a label) -->
+        <div class="close-label" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();">&times;</div>
+      </nav>
+
+      <!-- Overlay as a div -->
+      <div class="overlay" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();"></div>
+      <!---->
+
       <div class="header-inner">
         <div class="header-left">
-          <label for="menu-toggle" class="menu-label">&#9776;</label>
+          <!-- Hamburger label with id="menu-label" (this is the only label associated with the checkbox) -->
+          <label id="menu-label" for="menu-toggle" class="menu-label">&#9776;</label>
         </div>
         <div class="header-center">
           <a href="index.html">
@@ -46,6 +52,7 @@
       </div>
     </header>
 
+
     <!-- MAIN CONTENT -->
     <main class="main-about">
         <section class="container">
@@ -58,36 +65,38 @@
           </div>
         </section>
       </main>
-      
-
-    <footer>
-      <table class="footers">
-        <tr>
-          <th class="footer-space">Help?</th>
-          <th class="footer-space"></th>
-          <th class="footer-space">Contact us:</th>
-        </tr>
-        <tr class="table-border">
-          <td colspan="2"></td>
-        </tr>
-        <tr>
-          <td class="footer-space">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </td>
-          <th></th>
-          <td class="footer-space">
-            (587)-699-9999 <br />
-            <a href="mailto:lebronjames23@gmail.com">lebronjames23@gmail.com</a>
-          </td>
-        </tr>
-        <tr class="table-border">
-          <td colspan="2"></td>
-        </tr>
-        <tr>
-          <th colspan="3">Copyright Mark and Drev</th>
-        </tr>
-      </table>
-    </footer>
+    
+      <footer>
+        <table class="footers">
+          <tr>
+            <th class="footer-space">Help?</th>
+            <th class="footer-space"> Thank you!</th>
+            <th class="footer-space">Contact us:</th>
+          </tr>
+          <tr class="table-border">
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <td class="footer-space">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </td>
+            <td> Help support this group by lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.</td>
+            <td class="footer-space">
+              (587)-699-9999 <br />
+              <a href="mailto:lebronjames23@gmail.com">lebronjames23@gmail.com</a> <br />
+              23 ChosenOne Way <br />
+              Canada
+            </td>
+          </tr>
+          <tr class="table-border">
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <th colspan="3">Copyright Mark and Drev</th>
+          </tr>
+        </table>
+      </footer>
   </body>
 </html>
