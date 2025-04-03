@@ -12,26 +12,19 @@
   </head>
   <body>
     <header>
-      <!--Mobile Hidden Menu Sidebar-->
       <input type="checkbox" id="menu-toggle" aria-labelledby="menu-label" />
 
-      <!-- Sidebar Navigation (mobile off-canvas) -->
       <nav id="sidebar" aria-label="Sidebar Navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about-us.html">About Us</a></li>
         </ul>
-        <!-- Close button as a div (not a label) -->
         <div class="close-label" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();">&times;</div>
       </nav>
-
-      <!-- Overlay as a div -->
       <div class="overlay" aria-hidden="true" onclick="document.getElementById('menu-toggle').click();"></div>
-      <!---->
       <div class="header-inner">
         <div class="header-left">
-          <!-- Hamburger label with id="menu-label" (this is the only label associated with the checkbox) -->
           <label id="menu-label" for="menu-toggle" class="menu-label">&#9776;</label>
         </div>
         <div class="header-center">
